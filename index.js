@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
-const focus=require('./focus');
-const capture=require('./capture');
+const focus=require('./src/focus');
+const capture=require('./src/capture');
 
 
 let posx=0;
