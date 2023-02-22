@@ -1,5 +1,6 @@
-const focus=(x,y)=>{
-   // console.log(`Focused at ${x},${y}`);
-    return 1;
+const focus=(grid,x,y)=>{
+    grid[x][y]=2;
+   
+    return grid;
 }
 module.exports={focus};

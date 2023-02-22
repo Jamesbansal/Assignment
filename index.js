@@ -25,15 +25,18 @@ grid[0][0]=1;
 function Operation() {
     //If current cell has not been reached but has not been focused, then we call the focus function on the current cell.
     if (grid[posx][posy] === 1) {
-        grid[posx][posy]=2;
-      focus.focus(posx,posy);
-      setTimeout(Operation, 3000); // Wait 3 seconds before checking again
+        
+      grid=focus.focus(grid,posx,posy);
+      setTimeout(Operation, 3000);
+      //grid[posx][posy]=2;
+       // Wait 3 seconds before checking again
     } 
     //If current cell has been focused already then we call capture on the current cell.
     else if (grid[posx][posy] === 2) {
-        grid[posx][posy]=3;
-      capture.capture(posx,posy);
-      setTimeout(Operation, 2000); // Wait 2 seconds before checking again
+        
+      grid=capture.capture(grid,posx,posy);
+      setTimeout(Operation, 2000);
+      //grid[posx][posy]=3; // Wait 2 seconds before checking again
     } 
     //If the cuurent cell has been captured as well , then we wait for 100milli-second before checking again.
     else {
@@ -48,9 +51,8 @@ app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/public/home.html');
 });
 
-
-app.post('/', (req, res) => {
-  const keyCode = req.body.code;
+app.post('/reset',(req,res)=>{
+    const keyCode = req.body.code;
   const keyValue = req.body.value;
     let arrowpressed=keyValue;
     if (arrowpressed=='reset'){
@@ -61,9 +63,14 @@ app.post('/', (req, res) => {
                 grid[j][i]=0;
             }
         }
-
     }
-    else if (arrowpressed=='ArrowLeft'){
+});
+app.post('/', (req, res) => {
+  const keyCode = req.body.code;
+  const keyValue = req.body.value;
+    let arrowpressed=keyValue;
+
+     if (arrowpressed=='ArrowLeft'){
         posy-=1;
         if (posy<0)
         {

@@ -32,9 +32,9 @@
 	background-color: red;
   }
   @keyframes blink {
-	0% { background-color: white; }
-	50% { background-color: black; }
-	100% { background-color: white; }
+	
+	50% { background-color: white; }
+	
   }
   .red{
     border: 1px solid black;

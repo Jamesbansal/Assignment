@@ -1,5 +1,5 @@
-const capture=(x,y)=>{
-    //console.log(`Captured at ${x},${y}`);
-    return 1;
+const capture=(grid,x,y)=>{
+    grid[x][y]=3;
+    return grid;
 }
 module.exports={capture};
