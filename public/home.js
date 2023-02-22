@@ -171,11 +171,12 @@ function UpdateArray(){
               }
             }
 
-            
+            setTimeout(UpdateArray,1000);
           } else {
             console.error('Request failed');
+            setTimeout(UpdateArray,10000);
           }
     });
-    setTimeout(UpdateArray,1000);
+    
 }
 UpdateArray();
