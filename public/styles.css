@@ -1,0 +1,55 @@
+.container {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  .grid{
+	margin-top: 100px;
+	margin-left: 100px;
+  }
+  table {
+	border-collapse: collapse;
+  }
+  
+  td {
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+  }
+  
+  .blink {
+	animation: blink 1s linear infinite;
+  }
+  .reached{
+	background-color: black;
+  }
+  .focused{
+	background-color: blue;
+  }
+  .captured{
+	background-color: red;
+  }
+  @keyframes blink {
+	0% { background-color: white; }
+	50% { background-color: black; }
+	100% { background-color: white; }
+  }
+  .red{
+    border: 1px solid black;
+    background-color: red;
+  }
+  .blue{
+    border: 1px solid black;
+    background-color: blue;
+  }
+
+  .black{
+    border: 1px solid black;
+    background-color: black;
+  }
+  .message{
+    margin-top: 20px;
+    margin-left: 100px;
+  }
