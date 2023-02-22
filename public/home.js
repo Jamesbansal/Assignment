@@ -24,8 +24,10 @@ createGrid();
 const reset = document.getElementById("reset");
 reset.addEventListener("click", resetGrid);
 
+
+//When we reset the grid, all the added class names has to be removed from the cells.
 function resetGrid() {
-  console.log("resetting grid");
+  //console.log("resetting grid");
  
       let xhr = new XMLHttpRequest();
       xhr.open('POST', '/', true);
@@ -42,7 +44,7 @@ function resetGrid() {
             let grid=response.grid;
             let posx=response.x;
             let posy=response.y;
-            console.log(grid,posx,posy,"here");
+            //console.log(grid,posx,posy,"here");
             const curblink = document.getElementById(`${currentCol}-${currentRow}`);
             curblink.classList.remove("blink");
             const curblink2 = document.getElementById(`${posx}-${posy}`);
@@ -50,11 +52,7 @@ function resetGrid() {
             currentCol=posx;
             currentRow=posy;
 
-            //re-rendering the grid according to the array received as response
-            //1: white background indicating that cell has not been reached yet
-            //2: Black background indicating that the cell has been reached but not Focused or captured
-            //3: Blue Background indicating that the cell has been reached and Focused but not Captured
-            //4: Red Background indicating that the cell has been reached and Focused and Captured.
+            //removing the classnames from all cells in the grid.
             for (let i = 0; i < numRows; i++) {
               for (let j = 0; j < numCols; j++) {
                 
@@ -100,7 +98,7 @@ document.addEventListener('keydown', function(event) {
             let grid=response.grid;
             let posx=response.x;
             let posy=response.y;
-            console.log(grid,posx,posy);
+            //console.log(grid,posx,posy);
             const curblink = document.getElementById(`${currentCol}-${currentRow}`);
             curblink.classList.remove("blink");
             const curblink2 = document.getElementById(`${posx}-${posy}`);
