@@ -50,7 +50,9 @@ Operation();
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/public/home.html');
 });
-
+app.get('/grid',(req,res)=>{
+    res.status(200).json({ grid:grid , x:posx , y:posy });
+})
 app.post('/reset',(req,res)=>{
     const keyCode = req.body.code;
   const keyValue = req.body.value;
@@ -63,6 +65,7 @@ app.post('/reset',(req,res)=>{
                 grid[j][i]=0;
             }
         }
+        grid[posx][posy]=1;
     }
 });
 app.post('/', (req, res) => {
