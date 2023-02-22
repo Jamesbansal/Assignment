@@ -53,7 +53,17 @@ app.post('/', (req, res) => {
   const keyCode = req.body.code;
   const keyValue = req.body.value;
     let arrowpressed=keyValue;
-    if (arrowpressed=='ArrowLeft'){
+    if (arrowpressed=='reset'){
+        posx=0;
+        posy=0;
+        for(let j=0; j<grid.length;j++){
+            for (let i = 0; i < 60; i++) {
+                grid[j][i]=0;
+            }
+        }
+
+    }
+    else if (arrowpressed=='ArrowLeft'){
         posy-=1;
         if (posy<0)
         {
