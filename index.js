@@ -20,7 +20,8 @@ for(let j=0; j<grid.length;j++){
     }
 }
 grid[0][0]=1;
-
+let foc=0;
+let cap=0;
 //This function check if the cuurent position has been focused or not and calls the appropriate function accordingly
 function Operation() {
     //If current cell has not been reached but has not been focused, then we call the focus function on the current cell.
@@ -28,6 +29,7 @@ function Operation() {
         
       grid=focus.focus(grid,posx,posy);
       setTimeout(Operation, 3000);
+      
       //grid[posx][posy]=2;
        // Wait 3 seconds before checking again
     } 
@@ -36,6 +38,7 @@ function Operation() {
         
       grid=capture.capture(grid,posx,posy);
       setTimeout(Operation, 2000);
+      
       //grid[posx][posy]=3; // Wait 2 seconds before checking again
     } 
     //If the cuurent cell has been captured as well , then we wait for 100milli-second before checking again.
@@ -60,6 +63,14 @@ app.post('/reset',(req,res)=>{
     if (arrowpressed=='reset'){
         posx=0;
         posy=0;
+    
+            focus.clear();
+            
+        
+     
+            capture.clear();
+        
+ 
         for(let j=0; j<grid.length;j++){
             for (let i = 0; i < 60; i++) {
                 grid[j][i]=0;
